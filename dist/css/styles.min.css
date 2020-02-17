@@ -464,6 +464,9 @@ html {
   --percentageRows: 25%;
   --amountColumns: 4;
   --percentageColumns: 25%;
+  --mainColor: #ffb700;
+  --secondaryColor: #c68e00;
+  --backgroundColor: #353333;
   background: #353333;
 }
 
@@ -511,6 +514,10 @@ button:hover {
   animation: STARTINGANIMATION2 0.5s linear forwards;
 }
 
+.memory--started .memory__grid {
+  opacity: 1;
+}
+
 .memory--started .memory__card {
   cursor: pointer;
 }
@@ -545,6 +552,8 @@ button:hover {
   width: 70vmin;
   height: 70vmin;
   display: grid;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-out;
   grid-template-columns: repeat(var(--amountColumns), var(--percentageColumns));
   grid-template-rows: repeat(var(--amountRows), var(--percentageRows));
 }
@@ -645,7 +654,7 @@ button:hover {
 }
 
 .memory__mainTitle {
-  text-shadow: 0 0 3vmin #ff6464;
+  text-shadow: 0 0 3vmin var(--mainColor);
   color: #353333;
   margin: 0;
   text-transform: uppercase;
@@ -689,7 +698,8 @@ button:hover {
 }
 
 .memory__face--back {
-  background-image: url("https://clus.ch/wp-content/uploads/2016/08/cropped-Favicon_02.jpg");
+  background-image: repeating-linear-gradient(-45deg, var(--mainColor) 0 10%, var(--secondaryColor) 10% 20%);
+  background-color: lime;
   transform: rotateY(180deg);
   background-size: 6.5%;
   background-position: center;
@@ -703,7 +713,7 @@ button:hover {
   top: 0;
   width: 100%;
   height: 100%;
-  border: solid 3.2vmin white;
+  border: solid 2.2vmin white;
   border-radius: 10%;
 }
 
